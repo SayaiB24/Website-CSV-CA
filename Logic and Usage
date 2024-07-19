@@ -1,1 +1,39 @@
-hey
+LOGIC FOR ROOM ALLOCATION :-
+
+1. Read and Parse CSV Files:
+- Read the Group Information CSV and parse it into a list of dictionaries, where each dictionary represents a group 
+  with keys: Group ID, Members, and Gender.
+- Read the Hostel Information CSV and parse it into a list of dictionaries, where each dictionary represents a room 
+  with keys: Hostel Name, Room Number, Capacity, and Gender.
+
+2.Sort and Group Data:
+- Sort the group data by Members in descending order to allocate larger groups first.
+- Sort the hostel data by Capacity in descending order to fill larger rooms first.
+
+3.Allocation Algorithm:
+- Initialize an empty list to keep track of the room allocations.
+- Iterate over each group and attempt to allocate them to a room:
+- Find the first available room in the hostel data that matches the group's gender and has enough capacity.
+- If a suitable room is found, allocate the group to the room, reduce the room's remaining capacity, and record the allocation.
+- If no single room can accommodate the entire group, attempt to split the group into smaller subgroups and allocate
+  them to multiple rooms while maintaining the gender and capacity constraints.
+
+4.Handle Special Cases:
+- If groups with mixed genders (e.g., 5 Boys & 3 Girls) are present, they should be split and allocated to respective boys' 
+  and girls' hostels.
+
+5.Output Results:
+- Display the allocated rooms indicating which group members are in which room.
+- Provide a downloadable CSV file with the allocation details.
+
+USAGE :-
+1.Upload CSV Files:
+- Users upload the group and hostel information CSV files through the form.
+
+2.Run Allocation Algorithm:
+- The backend processes the files, runs the allocation algorithm, and generates the allocation results.
+
+3.Display and Download Results:
+- The results are displayed on the webpage, and users can download the allocation details as a CSV file.
+
+
